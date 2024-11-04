@@ -1,0 +1,45 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+#input {
+  background-color:#edceee;
+  height: 32px;
+  border-style: solid;
+  border-color: #9e8a9f;
+  border-radius: 5px;
+}
+
+.card-container {
+  width: 100%;
+  /* margin: 0 auto; */
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: antiquewhite;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.card {
+  background-color: rgb(255, 250, 243);
+  width: 15%;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 20px;
+}
+
+@media (max-width: 960px) {
+  .card {
+    flex: 1 1 calc(50% - 20px); /* Adjust to 50% width for tablets or smaller screens */
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    flex: 1 1 calc(100% - 20px); /* Full width for very small screens */
+  }
+}
