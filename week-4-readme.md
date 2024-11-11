@@ -24,3 +24,8 @@ In console log we should see which card was clicked.
 - In Card.jsx:
   - Import Button
   - Add Button to card with click.
+
+# Task:
+
+- By pressing "Edit" user can edit values in card.
+- Edit DOES NOT ! Passes updated values.
