@@ -5,27 +5,23 @@ import './App.css'
 import Card from'./Card'
 import personsData from './data/personsData'
 
-// import {useState} from 'react';
-
-// const Card = (props) => {
-//   return (
-//     <div className="card">
-//       <h3>{props.firstname}</h3>
-//       <p> Title: {props.title}</p>
-//       <p>Age: {props.age}</p>
-//     </div>
-//   );
-// };
-
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+
+  // Added toggle login
+  const toggleLogin = () => {
+    setIsLoggedIn((prevState) => !prevState);
+  };
 
   return (
-    <main>
+    <>
+    <header>
       {/* Toggle button for demonstration */}
       <button onClick={() => setIsLoggedIn(!isLoggedIn)}>
         {isLoggedIn ? "Log Out" : "Log In"}
       </button>
+    </header>
+    <main>
       
       {/* Conditional rendering based on isLoggedIn state */}
       {isLoggedIn ? (
@@ -42,6 +38,7 @@ function App() {
         <p>Please log in to view the cards.</p>
       )}
     </main>
+    </>
   );
 }
 
