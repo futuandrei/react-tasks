@@ -1,11 +1,14 @@
-const Card = ({firstname,title,age,animal}) => {
+import Button from '../components/Button';
+
+const Card = ({firstname,title,age,animal,click}) => {
     return (
       <div className="card">
         <p> Name: {firstname}</p>
         <p> Title: {title}</p>
         <p>Age: {age}</p>
         <p>Animal: {animal}</p>
-        <button>Promote</button>
+        {/* <Button text="Click me" click={click} /> */}
+        <Button text="Edit" click={click} />
       </div>
     );
   };
