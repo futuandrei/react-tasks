@@ -1,10 +1,10 @@
-const Card = (props) => {
+const Card = ({firstname,title,age,animal}) => {
     return (
       <div className="card">
-        <p> Name: {props.firstname}</p>
-        <p> Title: {props.title}</p>
-        <p>Age: {props.age}</p>
-        <p>Animal: {props.animal}</p>
+        <p> Name: {firstname}</p>
+        <p> Title: {title}</p>
+        <p>Age: {age}</p>
+        <p>Animal: {animal}</p>
         <button>Promote</button>
       </div>
     );
