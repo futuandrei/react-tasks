@@ -2,7 +2,8 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import Card from'./Card'
+import Card from'./components/Card'
+import Button from './components/Button'
 import personsData from './data/personsData'
 
 function App() {
@@ -13,13 +14,20 @@ function App() {
     setIsLoggedIn((prevState) => !prevState);
   };
 
+  const handleClick = (id) => {
+    console.log("I was clicked", id);
+  };
+
   return (
     <>
     <header>
-      {/* Toggle button for demonstration */}
-      <button onClick={() => setIsLoggedIn(!isLoggedIn)}>
+      <h1>Demo app for practicing React</h1>
+      <Button text= {isLoggedIn ? "Log Out" : "Log In"}
+        click={toggleLogin} // onClick can be anything.
+      />
+      {/* <button onClick={() => setIsLoggedIn(!isLoggedIn)}>
         {isLoggedIn ? "Log Out" : "Log In"}
-      </button>
+      </button> */}
     </header>
     <main>
       
@@ -32,6 +40,7 @@ function App() {
             title={person.title}
             age={person.age}
             animal={person.animal}
+            click={()=>handleClick(person.id)} //Sending out attribute, which sends a function.
           />
         ))
       ) : (
