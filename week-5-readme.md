@@ -22,4 +22,4 @@
 ### Router (know these)
 
 - RouterProvider
-- createBrowser ...
+- createBrowserRouter
