@@ -3,12 +3,13 @@ import Button from '../components/Button';
 
 const Card = ({ firstname, title, age, animal, click }) => {
   const [animalValue, setAnimalValue] = useState(animal); // Hook: stores animal value allowing to be updated in edit mode.
-  const [isEditing, setIsEditing] = useState(false); // Hook: Checking 
+  const [isEditing, setIsEditing] = useState(false); // Hook: Checking if editing
 
-  // Previous state
+  // Previous state... Not used at the moment!
   const toggleEditing = () => {
     setIsEditing((prevState) => !prevState);
   }; 
+
 
   // Toggle between edit and save mode
   const handleEditClick = () => {

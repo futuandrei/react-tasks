@@ -11,7 +11,7 @@ const List = () => {
                 personsData.map((person)=> (
                     <Card
                         key={person.id}
-                        firstname={person.firstName}
+                        firstname={person.firstname}
                         title={person.title}
                         age={person.age}
                         animal={person.animal}
