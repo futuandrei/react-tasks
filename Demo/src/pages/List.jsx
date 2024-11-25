@@ -44,7 +44,7 @@ const List = () => {
             // Parent's handleSave updates the corresponding data entry (person.id) in the state.
             onSave={(updatedData) => handleSave(person.id, updatedData)} // The onSave prop essentially “wraps” handleSave and passes the person.id along with updatedData.
             // calls handleSave, sending person.id and updatedData to update the parent’s state.
-            onClick={() => handleNavigate(person.id)}
+            listClick={() => handleNavigate(person.id)}
           />
         ))
       ) : (

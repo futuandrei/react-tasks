@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Button from "./Button";
 
-const Card = ({ firstname, title, age, animal, onSave, onClick }) => {
+const Card = ({ firstname, title, age, animal, onSave, listClick }) => {
   const [isEditing, setIsEditing] = useState(false);
 
   // Form hook
@@ -81,7 +81,7 @@ const Card = ({ firstname, title, age, animal, onSave, onClick }) => {
           <p>Age: {age}</p>
           <p>Animal: {animal}</p>
           <Button text="Edit" type="button" onClick={handleEditClick} />
-          <Button text="See more" variant="secondary" onClick={onClick} />
+          <Button text="See more" variant="secondary" click={listClick} />
         </>
       )}
     </div>

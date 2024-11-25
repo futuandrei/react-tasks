@@ -17,7 +17,7 @@ const SinglePage = () => {
       <p>Name: {person.name}</p>
       <p>Age: {person.age}</p>
       <p>Animal: {person.animal}</p>
-      <Button text="Back to List" onClick={() => navigate(-1)} />
+      <Button text="Back to List" click={() => navigate(-1)} />
     </div>
   );
 };
