@@ -1,48 +1,89 @@
-import { useState } from 'react';
-import Button from '../components/Button';
+import { useState } from "react";
 
-const Card = ({ firstname, title, age, animal, click }) => {
-  const [animalValue, setAnimalValue] = useState(animal); // Hook: stores animal value allowing to be updated in edit mode.
-  const [isEditing, setIsEditing] = useState(false); // Hook: Checking if editing
+const Card = ({ firstname, title, age, animal, onSave }) => {
+  const [isEditing, setIsEditing] = useState(false);
 
-  // Previous state... Not used at the moment!
-  const toggleEditing = () => {
-    setIsEditing((prevState) => !prevState);
-  }; 
+  // Form hook
+  const [formValues, setFormValues] = useState({
+    firstname,
+    title,
+    age,
+    animal: animal,
+  });
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormValues((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
 
-  // Toggle between edit and save mode
   const handleEditClick = () => {
-    if (isEditing) {
-      // Save the edited value
-      click(animalValue); // Optionally call the click function with the updated value
-    }
     setIsEditing(!isEditing);
   };
 
-  // Handle changes in the input field
-  const handleChange = (event) => {
-    setAnimalValue(event.target.value);
+  const handleSaveChild = () => {
+    onSave(formValues); // Calls the parent's function, sending form data to the parent
+    setIsEditing(false); // Updates local state to exit editing mode
   };
 
   return (
     <div className="card">
-      <p>Name: {firstname}</p>
-      <p>Title: {title}</p>
-      <p>Age: {age}</p>
-      <p>
-        Animal:{" "}
-        {isEditing ? (
-          <input
-            type="text"
-            value={animalValue}
-            onChange={handleChange}
-          />
-        ) : (
-          animalValue
-        )}
-      </p>
-      <Button text={isEditing ? "Save" : "Edit"} click={handleEditClick} />
+      {isEditing ? (
+        <form>
+          <label>
+            Name:
+            <input
+              type="text"
+              name="firstname"
+              value={formValues.firstname}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            Title:
+            <input
+              type="text"
+              name="title"
+              value={formValues.title}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            Age:
+            <input
+              type="number"
+              name="age"
+              value={formValues.age}
+              onChange={handleChange}
+            />
+          </label>
+          <label>
+            Animal:
+            <input
+              type="text"
+              name="animal"
+              value={formValues.animal}
+              onChange={handleChange}
+            />
+          </label>
+          <button type="button" onClick={handleSaveChild}>
+            Save
+          </button>
+          <button type="button">Show more</button>
+        </form>
+      ) : (
+        <>
+          <p>Name: {firstname}</p>
+          <p>Title: {title}</p>
+          <p>Age: {age}</p>
+          <p>Animal: {animal}</p>
+          <button type="button" onClick={handleEditClick}>
+            Edit
+          </button>
+        </>
+      )}
     </div>
   );
 };
