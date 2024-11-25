@@ -1,6 +1,7 @@
 import { useState } from "react";
+import Button from "./Button";
 
-const Card = ({ firstname, title, age, animal, onSave }) => {
+const Card = ({ firstname, title, age, animal, onSave, onClick }) => {
   const [isEditing, setIsEditing] = useState(false);
 
   // Form hook
@@ -68,10 +69,10 @@ const Card = ({ firstname, title, age, animal, onSave }) => {
               onChange={handleChange}
             />
           </label>
-          <button type="button" onClick={handleSaveChild}>
+          {/* <button type="button" onClick={handleSaveChild}>
             Save
-          </button>
-          <button type="button">Show more</button>
+          </button> */}
+          <Button type="button" text="Save" onClick={handleSaveChild} />
         </form>
       ) : (
         <>
@@ -79,9 +80,8 @@ const Card = ({ firstname, title, age, animal, onSave }) => {
           <p>Title: {title}</p>
           <p>Age: {age}</p>
           <p>Animal: {animal}</p>
-          <button type="button" onClick={handleEditClick}>
-            Edit
-          </button>
+          <Button text="Edit" type="button" onClick={handleEditClick} />
+          <Button text="See more" variant="secondary" onClick={onClick} />
         </>
       )}
     </div>

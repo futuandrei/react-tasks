@@ -1,8 +1,10 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import personsData from "../data/personsData";
 import Card from "../components/Card";
-import { useState } from "react";
 
 const List = () => {
+  const navigate = useNavigate();
   const isLoggedInd = true;
 
   // Manage card data state (initially set to personsData)
@@ -18,6 +20,12 @@ const List = () => {
 
     setData(updatedPersonsData); // Update state
     console.log("Updated data:", updatedPersonsData); // Debugging
+  };
+
+  // Handles navigation
+  const handleNavigate = (id) => {
+    console.log(id);
+    navigate(`${id}`);
   };
 
   return (
@@ -36,6 +44,7 @@ const List = () => {
             // Parent's handleSave updates the corresponding data entry (person.id) in the state.
             onSave={(updatedData) => handleSave(person.id, updatedData)} // The onSave prop essentially “wraps” handleSave and passes the person.id along with updatedData.
             // calls handleSave, sending person.id and updatedData to update the parent’s state.
+            onClick={() => handleNavigate(person.id)}
           />
         ))
       ) : (
