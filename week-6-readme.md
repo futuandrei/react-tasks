@@ -32,4 +32,11 @@ Last session:
 - In the demo app, update each card to include a secondary open that opens dedicated page
 - Add a back button
 
-## Step
+## Use Effect
+
+## Fetch or Axios?
+
+Fetch is Vanilla JS, Axios is 3rd party library.
+Difference is to use Axios we have to install it.
+Axios Get vs. Fetc: With Axios, to use we have to refer eg. `axios.get`
+Axios with the get makes the .json for us, so we don't have to ask for it.

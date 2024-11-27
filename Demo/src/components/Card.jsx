@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 import Button from "./Button";
 
 const Card = ({ firstname, title, age, animal, onSave, listClick }) => {
@@ -81,11 +82,29 @@ const Card = ({ firstname, title, age, animal, onSave, listClick }) => {
           <p>Age: {age}</p>
           <p>Animal: {animal}</p>
           <Button text="Edit" type="button" onClick={handleEditClick} />
-          <Button text="See more" variant="secondary" click={listClick} />
+          <Button text="See more" variant="secondary" onClick={listClick} />
         </>
       )}
     </div>
   );
+};
+
+// Define PropTypes
+Card.propTypes = {
+  firstname: PropTypes.string.isRequired, // `text` must be a string and is required
+  title: PropTypes.string.isRequired, // `text` must be a string and is required
+  age: PropTypes.number.isRequired, // `text` must be a string and is required
+  animal: PropTypes.string.isRequired, // `text` must be a string and is required
+  onSave: PropTypes.func.isRequired, // `onClick` must be a function and is required
+  // type: PropTypes.oneOf(["button", "submit", "reset"]), // `type` must be one of these values
+  listClick: PropTypes.func.isRequired, // `onClick` must be a function and is required
+  variant: PropTypes.string, // `variant` must be a string
+};
+
+// Define defaultProps (optional, for non-required props)
+Card.defaultProps = {
+  type: "button",
+  variant: "primary",
 };
 
 export default Card;
