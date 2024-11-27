@@ -81,7 +81,7 @@ const Card = ({ firstname, title, age, animal, onSave, listClick }) => {
           <p>Age: {age}</p>
           <p>Animal: {animal}</p>
           <Button text="Edit" type="button" onClick={handleEditClick} />
-          <Button text="See more" variant="secondary" click={listClick} />
+          <Button text="See more" variant="secondary" onClick={listClick} />
         </>
       )}
     </div>

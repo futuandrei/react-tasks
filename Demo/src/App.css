@@ -8,7 +8,7 @@
 }
 
 #input {
-  background-color:#edceee;
+  background-color: #edceee;
   height: 32px;
   border-style: solid;
   border-color: #9e8a9f;
@@ -19,9 +19,9 @@
   width: 100vw;
   /* margin: 0 auto; */
   /* padding: 0 auto; */
-  display:flex;
+  display: flex;
   flex-wrap: wrap;
-  justify-content:start;
+  justify-content: start;
   background-color: antiquewhite;
   /* padding: 20px; */
   /* border-radius: 20px; */
@@ -33,6 +33,11 @@
   padding: 20px;
   margin: 20px;
   border-radius: 20px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
 }
 
 @media (max-width: 960px) {
