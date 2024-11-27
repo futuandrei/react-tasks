@@ -25,7 +25,7 @@ const Header = () => {
               <NavLink to="/about">About</NavLink>
             </li>
           </ul>
-          <Button onClick={buttonText} text={buttonText} />
+          <Button onClick={handleButtonClick} text={buttonText} />
         </div>
       </nav>
     </div>
